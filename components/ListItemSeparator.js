@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, View} from 'react-native';
 import colors from '../app/colors';
+import Swipeable from 'react-native-gesture-handler/Swipeable';
+
 
 function ListItemSeparator() {
     return (
