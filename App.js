@@ -9,6 +9,7 @@ import {
   Platform,
   StyleSheet,
   TextInput,
+  Switch
 } from "react-native";
 import WelcomeScreen from "./screens/WelcomeScreen";
 import AppText from "./components/AppText";
@@ -25,7 +26,13 @@ import Icon from "./components/Icon";
 import ListItem from "./components/ListItem";
 import AccountScreen from "./screens/AccountScreen";
 import ListingScreen from "./screens/ListingScreen";
+import React, { useState } from "react";
+import AppTextInput from "./components/AppTextInput";
+import AppPicker from "./components/AppPicker";
+import LoginScreen from "./screens/LoginScreen";
+
+
 
 export default function App() {
-  return <TextInput placeholder="First Name"/>;
+  return <LoginScreen/>;
 }

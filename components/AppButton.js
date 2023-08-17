@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     padding: 15,
     width: "100%",
     position: "relative",
-    bottom: 325,
+    bottom: 15,
     height: 75,
     marginVertical: 10,
   },
