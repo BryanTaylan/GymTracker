@@ -1,23 +1,23 @@
 import React, { useState } from "react";
-import ListItem from "../components/ListItem";
+import ListItem from "../components/lists/ListItem";
 import { FlatList, StyleSheet, SafeAreaView, View } from "react-native";
 import Constants from "expo-constants";
 import Screen from "../components/Screen";
-import ListItemSeparator from "../components/ListItemSeparator";
+import ListItemSeparator from "../components/lists/ListItemSeparator";
 import Swipeable from "react-native-gesture-handler/Swipeable";
-import ListItemDeleteAction from "../components/ListItemDeleteAction";
+import ListItemDeleteAction from "../components/lists/ListItemDeleteAction";
 
 const initialMessages = [
   {
     id: 1,
-    title: "T1",
-    description: "D1",
+    title: "John Smith",
+    description: "This is a great app!",
     image: require("../assets/iconprofile.png"),
   },
   {
     id: 2,
-    title: "T2",
-    description: "D2",
+    title: "Smith John",
+    description: "Greatest app ever made!",
     image: require("../assets/iconprofile.png"),
   },
 ];
@@ -51,6 +51,12 @@ function MessagesScreen(props) {
         onRefresh={() => {
           setMessages([
             {
+              id: 1,
+              title: "T1",
+              description: "D1",
+              image: require("../assets/iconprofile.png"),
+            },
+            {
               id: 2,
               title: "T2",
               description: "D2",
@@ -64,7 +70,7 @@ function MessagesScreen(props) {
 }
 const styles = StyleSheet.create({
   screen: {
-    paddingTop: Constants.statusBarHeight,
+    height: "100%",
   },
 });
 

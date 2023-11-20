@@ -5,7 +5,7 @@ const image = {
 };
 import { AppButton } from "../components/AppButton";
 
-function WelcomeScreen(props) {
+function WelcomeScreen({navigation}) {
   {
   }
   return (
@@ -23,7 +23,7 @@ function WelcomeScreen(props) {
         <AppButton
           title="Login"
           backgroundColor="primary"
-          onPress={() => console.log("Login Tapped")}
+          onPress={() => navigation.navigate("Login")}
           styles={styles.login}
           textColor="secondary"
         />
@@ -31,7 +31,7 @@ function WelcomeScreen(props) {
           title="Register"
           backgroundColor="secondary"
           textColor="primary"
-          onPress={() => console.log("Register Tapped")}
+          onPress={() => navigation.navigate("Register")}
         />
       </View>
     </ImageBackground>
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-end",
     alignItems: "center",
+    
   },
 
   buttonsContainer: {

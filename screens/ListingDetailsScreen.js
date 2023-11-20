@@ -2,15 +2,17 @@ import React from "react";
 import { View, StyleSheet, Image } from "react-native";
 import colors from "../app/colors";
 import AppText from "../components/AppText";
-import ListItem from "../components/ListItem";
+import ListItem from "../components/lists/ListItem";
 
-function ListingDetailsScreen(props) {
+function ListingDetailsScreen({ route }) {
+  const listing = route.params;
+
   return (
-    <View>
-      <Image style={styles.image} source={require("../assets/Chest.png")} />
+    <View style={styles.background}>
+      <Image style={styles.image} source={listing.image} />
       <View style={styles.detailsContainer}>
-        <AppText style={styles.title}> Chest Workout</AppText>
-        <AppText style={styles.price}>$9.99</AppText>
+        <AppText style={styles.title}>{listing.title}</AppText>
+        <AppText style={styles.price}>{listing.price}</AppText>
         <View style={styles.userContainer}>
           <ListItem
             image={require("../assets/iconprofile.png")}
@@ -24,8 +26,15 @@ function ListingDetailsScreen(props) {
 }
 
 const styles = StyleSheet.create({
+  background: {
+    backgroundColor: colors.secondary,
+    width: "100%",
+    height: "100%",
+  },
+
   detailsContainer: {
     padding: 20,
+    backgroundColor: colors.secondary,
   },
   image: {
     width: "100%",
@@ -43,7 +52,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     left: -10,
   },
-  userContainer:{
+  userContainer: {
     marginVertical: 40,
   },
 });
