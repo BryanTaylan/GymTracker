@@ -1,27 +1,22 @@
-import React from "react";
-import { FlatList, StyleSheet } from "react-native";
+import { FlatList, StyleSheet, } from "react-native";
 import Screen from "../components/Screen";
 import Card from "../components/Card";
 import colors from "../app/colors";
-import Constants from "expo-constants";
-
-
-const listings = [
-  {
-    id: 1,
-    title: "Chest ",
-    subTitle: "Today's Workout",
-    image: require("../assets/Chest.png"),
-  },
-  {
-    id: 2,
-    title: "Back",
-    subTitle: "Tomorrow's Workout",
-    image: require("../assets/Back.png"),
-  },
-];
+import routes from "../app/navigation/routes";
+import { useEffect, useState } from 'react';
 
 function ListingsScreen({ navigation }) {
+  const [listings, setListings] = useState([]);
+
+  const loadListings = async () => {
+    const response = await listingsApi.getListings();
+    setListings(response.data);
+  };
+
+  useEffect(() => {
+    loadListings();
+  }, []);
+
   return (
     <Screen style={styles.screen}>
       <FlatList
@@ -31,8 +26,8 @@ function ListingsScreen({ navigation }) {
           <Card
             title={item.title}
             subTitle={item.subTitle}
-            image={item.image}
-            onPress={() => navigation.navigate("ListingDetails", item)}
+            imageUrl={item.images[0].url}
+            onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
           />
         )}
       />
@@ -41,11 +36,10 @@ function ListingsScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    screen: {
-        padding: 20,
-        backgroundColor: colors.light
-
-    }
-})
+  screen: {
+    padding: 20,
+    backgroundColor: colors.light,
+  },
+});
 
 export default ListingsScreen;

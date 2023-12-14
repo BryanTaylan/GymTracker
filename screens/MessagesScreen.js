@@ -6,6 +6,7 @@ import Screen from "../components/Screen";
 import ListItemSeparator from "../components/lists/ListItemSeparator";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 import ListItemDeleteAction from "../components/lists/ListItemDeleteAction";
+import colors from "../app/colors";
 
 const initialMessages = [
   {
@@ -71,6 +72,7 @@ function MessagesScreen(props) {
 const styles = StyleSheet.create({
   screen: {
     height: "100%",
+    backgroundColor: colors.light
   },
 });
 
